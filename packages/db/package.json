@@ -6,7 +6,9 @@
     "generate": "drizzle-kit generate",
     "migrate": "drizzle-kit migrate",
     "studio": "drizzle-kit studio",
-    "nuke": "drizzle-kit generate && drizzle-kit migrate"
+    "nuke": "drizzle-kit generate && drizzle-kit migrate",
+    "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,mdx}\" --cache",
+    "format:write": "prettier --write \"**/*.{ts,tsx,js,jsx,mdx}\" --cache"
   },
   "devDependencies": {
     "@types/bun": "latest",
