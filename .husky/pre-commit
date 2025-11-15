@@ -1,0 +1,12 @@
+#!/bin/bash
+
+echo "\nLinting code using sherif [1/2]..."
+
+sherif
+
+echo "\nFormatting code using prettier [2/2]..."
+
+npx turbo run format:write
+git add -A
+
+echo "\n✅ Code is now ready to be pushed!\n"

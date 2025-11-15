@@ -14,7 +14,7 @@ export namespace AuthTypes {
       .regex(/[0-9]/, "Password must contain at least one number")
       .regex(
         /[@$!%*?&_]/,
-        "Password must contain at least one special character (@, $, !, %, *, ?, &, _)"
+        "Password must contain at least one special character (@, $, !, %, *, ?, &, _)",
       ),
   });
 

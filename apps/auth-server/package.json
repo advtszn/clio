@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@clio/auth": "workspace:*",
+    "@clio/logger": "workspace:*",
     "@t3-oss/env-core": "^0.13.8",
     "hono": "^4.10.6",
     "zod": "^4.1.12"

@@ -26,9 +26,6 @@
       "~/*": [
         "./src/*"
       ],
-      "@clio/ui/*": [
-        "../../packages/ui/src/*"
-      ]
     }
   },
   "include": [

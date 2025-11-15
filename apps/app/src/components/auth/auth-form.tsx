@@ -9,6 +9,7 @@ import { Input } from "../ui/input";
 import { auth } from "~/lib/auth/client";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
+import { logger } from "@clio/logger";
 
 export default function AuthForm({
   mode,
@@ -29,7 +30,7 @@ export default function AuthForm({
 
     const toastID = toast.loading(
       mode === "sign-in" ? "Signing in..." : "Signing up...",
-      { richColors: true }
+      { richColors: true },
     );
 
     try {
@@ -75,7 +76,7 @@ export default function AuthForm({
 
       setIsSubmittingAction(false);
     } catch (error) {
-      console.error(error);
+      logger.error(error);
 
       toast.error("Failed to sign in", {
         description:

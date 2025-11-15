@@ -1,15 +1,16 @@
 import { Hono } from "hono/tiny";
 import { auth } from "./auth"; // path to your auth file
 import { cors } from "hono/cors";
-import { logger } from "hono/logger";
+import { logger as honoLogger } from "hono/logger";
 import { prettyJSON } from "hono/pretty-json";
 import { secureHeaders } from "hono/secure-headers";
 import { env } from "./env";
+import { logger } from "@clio/logger";
 
 const app = new Hono();
 
 app.use(
-  logger(),
+  honoLogger((...args: Parameters<typeof logger.info>) => logger.info(...args)),
   prettyJSON(),
   secureHeaders(),
   cors({
@@ -23,7 +24,7 @@ app.use(
       "Cookie",
     ],
     maxAge: 34560000,
-  })
+  }),
 );
 
 app.on(["POST", "GET"], "/api/auth/*", (c) => auth.handler(c.req.raw));

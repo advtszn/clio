@@ -3,7 +3,7 @@ import React from "react";
 
 const NoiseWrapper = ({
   children,
-  opacity = .33,
+  opacity = 0.33,
   className,
 }: {
   children: React.ReactNode;
@@ -14,7 +14,7 @@ const NoiseWrapper = ({
     <div className={cn("relative overflow-hidden", className)}>
       <svg
         className={cn(
-          "pointer-events-none absolute inset-0 isolate z-50 size-full"
+          "pointer-events-none absolute inset-0 isolate z-50 size-full",
         )}
         width="100%"
         height="100%"
