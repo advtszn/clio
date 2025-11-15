@@ -1,11 +1,12 @@
+import { env } from "./env";
 import { Hono } from "hono/tiny";
-import { auth } from "./auth"; // path to your auth file
+import { auth } from "./auth";
 import { cors } from "hono/cors";
 import { logger as honoLogger } from "hono/logger";
 import { prettyJSON } from "hono/pretty-json";
 import { secureHeaders } from "hono/secure-headers";
-import { env } from "./env";
 import { logger } from "@clio/logger";
+import { serve } from "bun";
 
 const app = new Hono();
 
@@ -29,4 +30,18 @@ app.use(
 
 app.on(["POST", "GET"], "/api/auth/*", (c) => auth.handler(c.req.raw));
 
-export default { port: 3002, ...app };
+const server = serve({
+  fetch: app.fetch,
+  port: env.PORT,
+  idleTimeout: 60,
+});
+
+logger.info(`Server running at ${server.hostname}:${server.port}`);
+
+process.on("SIGINT", () => {
+  server.stop();
+  process.exit(0);
+});
+process.on("SIGTERM", () => {
+  server.stop();
+});

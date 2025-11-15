@@ -14,7 +14,7 @@ export const user = pgTable("user", {
     .$onUpdate(() => /* @__PURE__ */ new Date())
     .notNull(),
   onboarded: boolean("onboarded").default(false).notNull(),
-  role: text("role").default("").notNull(),
+  role: text("role").$type<"user" | "doctor" | "insurer">(),
 });
 
 export const session = pgTable("session", {

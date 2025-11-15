@@ -1,9 +1,7 @@
 import z from "zod";
 
 export namespace AuthTypes {
-  export type TAuthModes = "sign-in" | "sign-up";
-
-  export const SAuthSchema = z.object({
+  export const SAuthUser = z.object({
     email: z.email(),
     password: z
       .string()
@@ -18,5 +16,12 @@ export namespace AuthTypes {
       ),
   });
 
-  export type TAuthSchema = z.infer<typeof SAuthSchema>;
+  export const SOnboardUser = z.object({
+    name: z.string(),
+    role: z.enum(["user", "doctor", "insurer"]),
+  });
+
+  export type TAuthModes = "sign-in" | "sign-up";
+  export type TAuthUser = z.infer<typeof SAuthUser>;
+  export type TOnboardUser = z.infer<typeof SOnboardUser>;
 }

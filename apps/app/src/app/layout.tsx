@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { Manrope } from "next/font/google";
 
-import "./globals.css";
+import "../styles/globals.css";
 import { seasonSans } from "~/components/common/fonts";
 import { Toaster } from "~/components/ui/sonner";
+import { TRPCReactProvider } from "~/server/api/client";
 
 const manrope = Manrope({ variable: "--font-manrope" });
 
@@ -20,8 +21,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={` ${seasonSans.variable} antialiased`}>
       <body>
-        {children}
-        <Toaster position="bottom-center" />
+        <TRPCReactProvider>
+          {children}
+          <Toaster position="bottom-center" />
+        </TRPCReactProvider>
       </body>
     </html>
   );

@@ -19,13 +19,13 @@ export default function AuthForm({
   setIsSubmittingAction: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
   const router = useRouter();
-  const form = useForm<AuthTypes.TAuthSchema>({
+  const form = useForm<AuthTypes.TAuthUser>({
     defaultValues: { email: "", password: "" },
-    resolver: zodResolver(AuthTypes.SAuthSchema),
+    resolver: zodResolver(AuthTypes.SAuthUser),
     mode: "onChange",
   });
 
-  async function handleSubmit({ email, password }: AuthTypes.TAuthSchema) {
+  async function handleSubmit({ email, password }: AuthTypes.TAuthUser) {
     setIsSubmittingAction(true);
 
     const toastID = toast.loading(
@@ -76,7 +76,7 @@ export default function AuthForm({
 
       setIsSubmittingAction(false);
     } catch (error) {
-      logger.error(error);
+      console.error(error);
 
       toast.error("Failed to sign in", {
         description:
@@ -104,6 +104,7 @@ export default function AuthForm({
                 id="form-auth-email"
                 autoComplete="off"
                 type="email"
+                placeholder="user@clio.xyz"
                 aria-invalid={fieldState.invalid}
               />
               {fieldState.invalid && (

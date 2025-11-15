@@ -1,5 +1,3 @@
-"use client";
-
 import Link from "next/link";
 import { Button } from "~/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "~/components/ui/card";
@@ -11,7 +9,6 @@ import {
   FileText,
   Brain,
   Stethoscope,
-  Building2,
   Sparkles,
   Lock,
   Plug,

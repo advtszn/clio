@@ -7,7 +7,7 @@ export const env = createEnv({
     NODE_ENV: z.enum(["development", "production"]).default("development"),
     DATABASE_URL: z.url(),
     AUTH_SECRET: z.string(),
-    BASE_URL: z.url(),
+    PORT: z.coerce.number().default(3002),
   },
   runtimeEnv: process.env,
 });
