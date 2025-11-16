@@ -21,6 +21,7 @@
   "exports": {
     "./server": "./src/server.ts",
     "./client": "./src/client.ts",
-    "./cookies": "./src/cookies.ts"
+    "./cookies": "./src/cookies.ts",
+    "./react": "./src/react.ts"
   }
 }

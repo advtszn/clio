@@ -15,31 +15,16 @@ import {
 } from "~/components/ui/icons";
 import NoiseWrapper from "~/components/common/noise-wrapper";
 import AuthDialog from "~/components/auth/auth-dialog";
+import HomeNavbar from "~/components/home/navbar";
+import Footer from "~/components/home/footer";
+import GetStarted from "~/components/home/get-started";
 
 export default function Home() {
   return (
     <div className="bg-background text-foreground flex min-h-dvh flex-col font-sans">
-      <header className="supports-backdrop-filter:bg-background/40 sticky top-0 z-40 w-full border-b backdrop-blur-xs">
-        <div className="container mx-auto flex h-16 items-center justify-between px-4 md:px-6">
-          <Link href="/" className="flex items-center gap-2">
-            <div className="bg-primary text-primary-foreground grid size-8 place-items-center rounded-none font-bold">
-              C
-            </div>
-            <span className="text-xl font-semibold tracking-tight">Clio</span>
-          </Link>
-
-          <div className="flex items-center gap-2">
-            <AuthDialog mode="sign-in">
-              <Button variant="outline">Sign in</Button>
-            </AuthDialog>
-            <AuthDialog mode="sign-up">
-              <Button variant="default">Sign up</Button>
-            </AuthDialog>
-          </div>
-        </div>
-      </header>
       <NoiseWrapper>
         {/* Header */}
+        <HomeNavbar />
 
         {/* Hero */}
         <section className="relative overflow-hidden border-b">
@@ -52,22 +37,15 @@ export default function Home() {
                 End medical data chaos with Contextual Medical Memory
               </h1>
               <p className="text-muted-foreground mt-6 text-lg md:text-xl">
-                Clio ingests your scattered medical documents—labs, notes,
-                portals, claims—and transforms them into a secure, structured,
-                queryable memory that works across patients, doctors, and
-                insurers.
+                Clio ingests your scattered medical documents &mdash; labs,
+                notes, portals, claims &mdash; and transforms them into a
+                secure, structured, queryable memory that works across patients,
+                doctors, and insurers.
               </p>
               <div className="mt-8 ">
-                <AuthDialog mode="sign-up">
-                  <Button size="lg" className="">
-                    Get started <ArrowRight className="size-4" />
-                  </Button>
-                </AuthDialog>
+                <GetStarted />
               </div>
               <div className="mt-8 grid grid-cols-1 gap-4 text-sm sm:grid-cols-3">
-                <div className="text-muted-foreground flex items-center gap-2">
-                  <Lock className="size-4" /> HIPAA-grade security
-                </div>
                 <div className="text-muted-foreground flex items-center gap-2">
                   <ShieldCheck className="size-4" /> Consent-first sharing
                 </div>
@@ -245,26 +223,7 @@ export default function Home() {
         </section>
 
         {/* Footer */}
-        <footer className="mt-auto border-t">
-          <div className="container mx-auto px-4 py-10 text-sm md:px-6">
-            <div className="grid items-start gap-4 md:grid-cols-6">
-              <div className="space-y-3 col-span-3">
-                <div className="flex items-center gap-2">
-                  <div className="bg-primary text-primary-foreground grid size-7 place-items-center  font-bold">
-                    C
-                  </div>
-                  <span className="font-medium">Clio</span>
-                </div>
-                <p className="text-muted-foreground">
-                  Contextual Medical Memory. Secure, structured, shareable.
-                </p>
-              </div>
-            </div>
-            <div className="text-muted-foreground mt-8">
-              © {new Date().getFullYear()} Clio. All rights reserved.
-            </div>
-          </div>
-        </footer>
+        <Footer />
       </NoiseWrapper>
     </div>
   );
