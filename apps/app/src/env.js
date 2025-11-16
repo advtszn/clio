@@ -3,7 +3,6 @@ import z from "zod";
 
 export const env = createEnv({
   server: {
-    ALLOWED_ORIGINS: z.string(),
     NODE_ENV: z.enum(["development", "production"]).default("development"),
     DATABASE_URL: z.url(),
     AUTH_SECRET: z.string(),
@@ -14,7 +13,6 @@ export const env = createEnv({
     NEXT_PUBLIC_API_URL: z.url(),
   },
   runtimeEnv: {
-    ALLOWED_ORIGINS: process.env.ALLOWED_ORIGINS,
     NODE_ENV: process.env.NODE_ENV,
     DATABASE_URL: process.env.DATABASE_URL,
     AUTH_SECRET: process.env.AUTH_SECRET,

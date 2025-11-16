@@ -4,7 +4,7 @@ import { Manrope } from "next/font/google";
 import "../styles/globals.css";
 import { seasonSans } from "~/components/common/fonts";
 import { Toaster } from "~/components/ui/sonner";
-import { TRPCReactProvider } from "~/server/api/client";
+import { TRPCReactProvider } from "~/lib/react-query/client";
 
 const manrope = Manrope({ variable: "--font-manrope" });
 

@@ -1,6 +1,6 @@
 import "server-only";
 
-import type { AppRouter } from "@clio/api";
+import type { AppRouter } from "~/server/api/root";
 import { HydrationBoundary } from "@tanstack/react-query";
 import { dehydrate } from "@tanstack/react-query";
 import { createTRPCClient, loggerLink } from "@trpc/client";

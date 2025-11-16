@@ -6,24 +6,20 @@ import { logger as honoLogger } from "hono/logger";
 import { prettyJSON } from "hono/pretty-json";
 import { env } from "~/env";
 import { auth } from "~/lib/auth/server";
+import { trpcServer } from "@hono/trpc-server";
+import { appRouter } from "~/server/api/root";
+import { createTRPCContext } from "~/server/api/init";
 
 const app = new Hono().basePath("/api");
 
+app.use(honoLogger(), prettyJSON(), secureHeaders());
+
 app.use(
-  honoLogger(),
-  prettyJSON(),
-  secureHeaders(),
-  cors({
-    origin: env.ALLOWED_ORIGINS.split(","),
-    credentials: true,
-    allowMethods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowHeaders: [
-      "Authorization",
-      "Content-Type",
-      "accept-language",
-      "Cookie",
-    ],
-    maxAge: 34560000,
+  "/trpc/*",
+  trpcServer({
+    router: appRouter,
+    endpoint: "/api/trpc",
+    createContext: createTRPCContext,
   }),
 );
 

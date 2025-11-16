@@ -1,6 +1,6 @@
 "use client";
 
-import type { AppRouter } from "@clio/api";
+import type { AppRouter } from "~/server/api/root";
 import type { QueryClient } from "@tanstack/react-query";
 import { QueryClientProvider, isServer } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";

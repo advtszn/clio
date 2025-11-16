@@ -16,7 +16,7 @@ import {
 } from "../ui/field";
 import { Button } from "../ui/button";
 import { ArrowRight, Loader } from "../ui/icons";
-import { useTRPC } from "~/server/api/client";
+import { useTRPC } from "~/lib/react-query/client";
 import { useRouter } from "next/navigation";
 import { useMutation } from "@tanstack/react-query";
 import { toast } from "sonner";

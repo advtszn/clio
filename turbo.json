@@ -21,25 +21,6 @@
         "NEXT_PUBLIC_API_URL",
         "NEXT_PUBLIC_BASE_URL",
         "AUTH_SECRET",
-        "ALLOWED_ORIGINS",
-        "DATABASE_URL"
-      ]
-    },
-    "@clio/auth-server#build": {
-      "dependsOn": ["^build"],
-      "inputs": ["$TURBO_DEFAULT$", ".env*"],
-      "outputs": ["dist"],
-      "env": ["NODE_ENV", "AUTH_SECRET", "ALLOWED_ORIGINS", "DATABASE_URL"]
-    },
-    "@clio/api#build": {
-      "dependsOn": ["^build"],
-      "inputs": ["$TURBO_DEFAULT$", ".env*"],
-      "outputs": ["dist"],
-      "env": [
-        "NODE_ENV",
-        "AUTH_SECRET",
-        "AUTH_URL",
-        "ALLOWED_ORIGINS",
         "DATABASE_URL"
       ]
     },

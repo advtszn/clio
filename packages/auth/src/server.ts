@@ -36,5 +36,4 @@ export const createAuth = (appName: string, baseURL: string) =>
       database: { generateId: false },
     },
     secret: process.env.AUTH_SECRET!,
-    trustedOrigins: process.env.ALLOWED_ORIGINS?.split(","),
   });
