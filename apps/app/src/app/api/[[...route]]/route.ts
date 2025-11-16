@@ -1,16 +1,16 @@
-import { env } from "./env";
-import { Hono } from "hono/tiny";
-import { auth } from "./auth";
+import { Hono } from "hono";
+import { handle } from "hono/vercel";
 import { cors } from "hono/cors";
+import { secureHeaders } from "hono/secure-headers";
 import { logger as honoLogger } from "hono/logger";
 import { prettyJSON } from "hono/pretty-json";
-import { secureHeaders } from "hono/secure-headers";
-import { logger } from "@clio/logger";
+import { env } from "~/env";
+import { auth } from "~/lib/auth/server";
 
-const app = new Hono();
+const app = new Hono().basePath("/api");
 
 app.use(
-  honoLogger((...args: Parameters<typeof logger.info>) => logger.info(...args)),
+  honoLogger(),
   prettyJSON(),
   secureHeaders(),
   cors({
@@ -27,6 +27,7 @@ app.use(
   }),
 );
 
-app.on(["POST", "GET"], "/api/auth/*", (c) => auth.handler(c.req.raw));
+app.on(["POST", "GET"], "/auth/*", (c) => auth.handler(c.req.raw));
 
-export default app;
+export const GET = handle(app);
+export const POST = handle(app);
