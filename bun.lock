@@ -11,34 +11,12 @@
         "typescript": "^5.9.3",
       },
     },
-    "apps/api": {
-      "name": "@clio/api",
-      "dependencies": {
-        "@clio/auth": "workspace:*",
-        "@clio/db": "workspace:*",
-        "@clio/logger": "workspace:*",
-        "@hono/trpc-server": "^0.4.0",
-        "@t3-oss/env-core": "^0.13.8",
-        "@trpc/server": "^11.7.1",
-        "hono": "^4.10.6",
-        "superjson": "^2.2.5",
-        "zod": "^4.1.12",
-      },
-      "devDependencies": {
-        "@types/bun": "latest",
-      },
-      "peerDependencies": {
-        "typescript": "^5",
-      },
-    },
     "apps/app": {
       "name": "@clio/app",
       "version": "0.1.0",
       "dependencies": {
-        "@clio/api": "workspace:*",
         "@clio/auth": "workspace:*",
         "@clio/db": "workspace:*",
-        "@clio/logger": "workspace:*",
         "@hono/trpc-server": "^0.4.0",
         "@hookform/resolvers": "^5.2.2",
         "@radix-ui/react-dialog": "^1.1.15",
@@ -164,8 +142,6 @@
     "@better-auth/utils": ["@better-auth/utils@0.3.0", "", {}, "sha512-W+Adw6ZA6mgvnSnhOki270rwJ42t4XzSK6YWGF//BbVXL6SwCLWfyzBc1lN2m/4RM28KubdBKQ4X5VMoLRNPQw=="],
 
     "@better-fetch/fetch": ["@better-fetch/fetch@1.1.18", "", {}, "sha512-rEFOE1MYIsBmoMJtQbl32PGHHXuG2hDxvEd7rUHE0vCBoFQVSDqaVs9hkZEtHCxRoY+CljXKFCOuJ8uxqw1LcA=="],
-
-    "@clio/api": ["@clio/api@workspace:apps/api"],
 
     "@clio/app": ["@clio/app@workspace:apps/app"],
 
