@@ -1,10 +1,10 @@
+import { env } from "./env";
 import { Hono } from "hono";
 import { logger as honoLogger } from "hono/logger";
 import { logger } from "@clio/logger";
 import { prettyJSON } from "hono/pretty-json";
 import { secureHeaders } from "hono/secure-headers";
 import { cors } from "hono/cors";
-import { env } from "./env";
 import { trpcServer } from "@hono/trpc-server";
 import { appRouter } from "./trpc";
 import { createTRPCContext } from "./trpc/init";
