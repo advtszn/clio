@@ -11,10 +11,10 @@ const NoiseWrapper = ({
   className?: string;
 }) => {
   return (
-    <div className={cn("relative overflow-hidden", className)}>
+    <div className={cn("relative flex flex-1 flex-col", className)}>
       <svg
         className={cn(
-          "pointer-events-none absolute inset-0 isolate z-50 size-full",
+          "pointer-events-none fixed inset-0 isolate z-50 h-full w-full",
         )}
         width="100%"
         height="100%"

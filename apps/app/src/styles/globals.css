@@ -157,9 +157,16 @@
 
 @layer base {
   * {
-    @apply border-border outline-ring/50 overscroll-none;
+    @apply border-border outline-ring/50;
+  }
+  /* Keep overscroll on the viewport only. Applying it to `*` turns every
+     `overflow-hidden` element into a scroll-chain barrier, which swallows
+     wheel events instead of passing them to the page. */
+  html,
+  body {
+    @apply overscroll-none;
   }
   body {
-    @apply bg-background text-foreground ;
+    @apply bg-background text-foreground;
   }
 }
